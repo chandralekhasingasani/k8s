@@ -6,9 +6,12 @@ spec:
   containers:
     - name: centos7
       image: centos:7
+      command:
+        - sleep
+        - "10000"
       volumeMounts:
         - name: volume1
           mountPath: /data
   volumes:
-    name: volume1
-    emptyDir: {}
+    - name: volume1
+      emptyDir: {}
