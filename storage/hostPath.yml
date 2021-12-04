@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostPath
+spec:
+  containers:
+    - name: centos7
+      image: centos:7
+      command:
+        - sleep
+        - "10000"
+      volumeMounts:
+        - name: volume1
+          mountPath: /data
+  volumes:
+    - name: volume1
+      hostPath:
+        path: /chandra
+        type: Directory
